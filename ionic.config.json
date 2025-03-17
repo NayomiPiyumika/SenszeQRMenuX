@@ -1,0 +1,7 @@
+{
+  "name": "SenszeQRMenuX",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
