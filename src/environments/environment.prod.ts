@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  fileUrl: 'https://api-diyalumafallsinn.sensze.com/storage/app/public/'
 };

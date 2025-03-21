@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  fileUrl: 'https://api-diyalumafallsinn.sensze.com/storage/app/public/' // fileUrl එක define කරන්න
 };
 
 /*

@@ -1,0 +1,42 @@
+.delivery-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d9ead3;
+    color: #388e3c;
+  }
+  
+  .food-card {
+    display: flex;
+    align-items: center;
+  }
+  
+  .food-info {
+    flex-grow: 1;
+  }
+  
+  .food-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+  
+  .top-week-title {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  ion-slides {
+    margin-top: 10px;
+  }
+  
+  ion-card {
+    width: 150px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .tab-active {
+    color: #388e3c;
+  }
