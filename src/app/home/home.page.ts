@@ -25,6 +25,7 @@ export class HomePage implements OnInit, OnDestroy {
   searchTerm: string = '';
   showSearch: boolean = false;
   cartItems: any[] = [];
+  isSearchVisible: boolean = false;
 
 
   constructor(private apiService: ApiService, private navCtrl: NavController, private router: Router, private toastController: ToastController) {     this.loadCart();
@@ -104,13 +105,7 @@ export class HomePage implements OnInit, OnDestroy {
     console.log('Tab changed:', event);
   }
 
-  toggleSearch() {
-    this.showSearch = !this.showSearch;
-    if (!this.showSearch) {
-      this.searchTerm = ''; // Clear search when closing
-      this.filterProducts();
-    }
-  }
+ 
 
   hideSearch() {
     this.showSearch = false;
@@ -118,19 +113,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.filterProducts();
   }
 
-  searchProducts() {
-    if (this.searchTerm.trim()) {
-      this.filteredProducts = this.products.filter(product =>
-        product.NameOF.toLowerCase().includes(this.searchTerm.toLowerCase())
-      ).map(product => ({
-        ...product,
-        ImgPath: environment.fileUrl + product.ImgPath,
-        quantity: 0
-      }));
-    } else {
-      this.filterProducts(); // Show all products if search is empty
-    }
-  }
+ 
 
   // Navigate to Cart Page
   goToCart() {
@@ -204,6 +187,30 @@ export class HomePage implements OnInit, OnDestroy {
   
   onImageError(event: any) {
     event.target.src = 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+  }
+  
+
+  toggleSearch() {
+    const searchBar = document.querySelector('.custom-searchbar');
+    const foodText = document.querySelector('.styled-food-text');
+  
+    if (searchBar && foodText) {
+      searchBar.classList.toggle('show');
+      foodText.classList.toggle('hidden');
+    }
+  }
+  
+  
+  
+  searchProducts() {
+    if (this.searchTerm.trim() !== '') {
+      console.log('Searching for:', this.searchTerm);
+      this.filteredProducts = this.products.filter(product =>
+        product.NameOF.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredProducts = [...this.products];
+    }
   }
   
 

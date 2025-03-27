@@ -1,278 +1,224 @@
-/* General Styles */
-ion-content {
-  --background: linear-gradient(to bottom, rgba(255, 255, 255, 0.096), rgb(255, 255, 255));
+
+.modern-header {
+  background: #ffffff;
+  padding: 0;
 }
 
-/* Header */
-ion-header ion-toolbar {
-  --background: linear-gradient(to bottom, rgb(26, 114, 26), rgb(255, 255, 255));
-  --border-width: 0;
+/* 🔹 Header Toolbar */
+.header-toolbar {
+  display: flex;
+  padding: 5px;
 }
 
+/* 🔹 Header Styling */
+.header-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+/* 🔹 Header Content */
 .header-content {
-  align-items: center;
-}
-
-.search-col,
-.home-col,
-.notification-col {
-  display: flex;
-}
-
-.home-col {
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.notification-col {
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.welcome-container {
-  font-size: 16px;
-  font-weight: bolder;
-  margin: 0;
-}
-
-.notification-icon {
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #e5f1df;
-  border: 1px solid #ccc;
-  padding: 7px;
-}
-
-.search-icon-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  
-}
-
-.search-icon {
-  font-size: 24px;
-  color: #555;
-}
-
-.tabs-container {
-  position: sticky;
-  top: 72.5px;
-  z-index: 10;
-  padding: 0px; 
-  background: #f5f9f6; /* Soft background එකක් */
-  border-radius: 0px; /* More rounded look */
-  border-bottom: 0.5px solid #0c0c0c; /* Black border added */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-}
-
-
-ion-segment {
-  --background: #ffffff; /* Lighter greenish background */
-  --indicator-color: #ffffff; /* White indicator */
-  --indicator-height: 2px; 
-  border-radius: 15px; /* Smooth edges */
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.category-button {
-  --color: #ffffff; /* White text */
-  --color-checked: #ffffff; /* White text when selected */
-  --background-checked: #e7e4e4de; /* Gray background when selected */
-  --ripple-color: rgba(0, 0, 0, 0.08);
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: capitalize;
-  border-radius: 14px;
-  border: none;
-  transition: all 0.2s ease-in-out;
-  height: 26px;
-  line-height: 24px;
-}
-
-
-
-.category-button:hover {
-  background: #ffffffe1;
-  color: #fff;
-  transform: scale(1.05); /* Cute hover effect */
-}
-
-
-/* Product List */
-ion-list {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.342), rgba(255, 255, 255, 0.397));
-  padding: 10px;
-  margin-top: 78px;
-}
-
-ion-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  --background: #ffffff91;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0.1, 0.3);
- 
-  transition: transform 0.2s ease-in-out;
-  height: 105px;
-  margin-top: 10px;
-margin-bottom: 20px;
+  width: 100%;
+  padding: 0 12px;
 }
 
-ion-item:hover {
-  transform: scale(1.02);
+/* 🔹 Title */
+.header-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(70, 3, 3);
+  word-spacing: 4px;
+  text-align: center;
 }
 
-ion-thumbnail {
-  flex-shrink: 0;
-  width: 100px;
-  height: 100px;
+.custom-searchbar {
+  display: flex !important;
+  align-items: center;
+  background: #ffffff !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  margin-top: 20px !important;
+  color: #000000 !important;
+  margin-bottom: 15px !important;
+}
+
+
+
+/* 🔹 Fixed Tabs */
+.tabs-container {
+  position: sticky;
+  top: 0px;
+  background: rgb(255, 255, 255); 
+  z-index: 100;
+
+}
+
+/* 🔹 Custom Segment */
+.custom-segment {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: rgb(255, 255, 255); 
+  color: #5e5f5f;
+  
+
+}
+
+.category-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #333;
+  border-radius: 15px;
+  margin: 0 3px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
+  border: 1px solid ;
+  padding: 0px;
+  font-weight: bold;
+}
+
+/* Active Category Style */
+.category-button.segment-button-checked {
+  background: linear-gradient(to right, #ee3434, #fca6a6); 
+  color: rgb(255, 255, 255);
+}
+
+/* Text Label Styles */
+.category-button ion-label {
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+/* Remove Icon from ion-segment-button */
+.category-button ion-icon {
+  display: none;
+}
+
+/* Remove any '::before' content */
+.category-button::before {
+  content: none;
+}
+
+.category-button:active {
+  color: rgb(255, 0, 0);
+}
+
+/* 🔹 Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  padding: 10px;
+  background: white; 
+  background-color: rgb(255, 255, 255); 
+}
+
+.product-card {
   border-radius: 10px;
   overflow: hidden;
+  background: var(--white);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #f770700a;
 }
 
-
-
-ion-label {
-  flex-grow: 1;
-  margin-left: 20px;
-  text-align: left;
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack name and price vertically */
-  justify-content: center; /* Center content vertically */
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
-ion-label h2 {
-  font-size: 14px; /* Increased font size */
-  font-weight: 600; /* Adjusted font weight */
-  color: #0c0c0c;
-  margin-bottom: 3px; /* Added spacing */
-}
-
-ion-label p.price { /* Target the price paragraph */
-  font-size: 13px; /* Increased font size */
-  color: #d12222;
-  font-weight: 600;
-  margin-bottom: 0px;
-  margin-left: 25px;
-}
-
-.name-with-check {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.check-icon {
-  color: rgba(20, 9, 9, 0.11);
-  font-size: 18px;
-  align-self: center; /* Align the icon vertically */
-}
-
-
-
-/* Name with Check Icon */
-.name-with-check {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.check-icon {
-  color: rgb(15, 24, 15);
-  font-size: 18px;
-}
-
-/* Bottom Bar */
-ion-tab-bar {
-  p {
-    letter-spacing: 12px;
-    color: #195321d5;
-  }
-}
-
-ion-tab-button.tab-selected {
-  --background: rgba(5, 255, 5, 0.281);
-  height: 15px;
-}
-
-ion-icon,
-ion-label {
-  color: rgb(7, 34, 3);
-}
-
-
-.search-bar-container {
-  display: flex;
-  align-items: center;
+/* 🔹 Product Image */
+.product-image {
   width: 100%;
-  animation: fadeIn 0.3s ease-in-out;
+  height: 150px;
+  object-fit: cover;
 }
 
-.search-input-inline {
-  width: 90%;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #0a5216;
-  background: white;
-  
+/* 🔹 Product Name */
+.product-name {
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  font-weight: bold;
 }
 
-.close-icon {
-  font-size: 30px;
-  color: #520a0a;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-.search-bar-col-overlay {
-  position: absolute; 
-  top: 50%;
-  left: 40%; 
-  transform: translate(-50%, -50%); 
-  width: 80%; 
-  z-index: 10; 
+/* 🔹 Price Section */
+.price-section {
   display: flex;
-  justify-content: center;
-  animation: fadeIn 0.3s ease-in-out;
-  align-items: center; 
-
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
 }
 
-.search-input-overlay {
-  width: 55%;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #0a5216;
-  background: white;
-  padding-left: 10px;
+.discounted-price {
+  color: red;
+  font-size: 0.8rem;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
 }
 
-.close-icon {
-  font-size: 40px;
-  color: #991c1c;
-  margin-left: 10px; 
-  cursor: pointer;
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
+.styled-food-text {
+  color: rgb(0, 0, 0); 
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-top: 40px;
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  span {
+    color: red; 
+    font-weight: bold;
+    font-size: 22px;
   }
-  to {
-    opacity: 1;
-  }
 }
 
+.discounted-price::before {
+  content: "✓ "; 
+  color: green; 
+  margin-right: 10px; 
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+
+/* Ensure the footer has a red background */
+ion-footer {
+  background-color: red !important;  /* Bright Red */
+}
+
+/* Ensure the footer is forced to red */
+.custom-footer {
+  background-color: red !important;
+}
+
+/* Prevent toolbar from overriding the footer color */
+ion-toolbar {
+  background-color: transparent !important;
+}
+
+/* Ensure text is visible */
+.custom-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white !important;  /* Ensure text contrast */
+  letter-spacing: px;
+  background-color: #ee3434;
+  text-align:center;
+
+}

@@ -1,68 +1,50 @@
-<ion-tabs>
 
-  <ion-header position="fixed">
-    <ion-toolbar class="modern-header">
-      <ion-grid>
-        <ion-row class="header-content">
-          <ion-col size="auto" class="search-col">
-            <div class="search-icon-container" (click)="toggleSearch()">
-              <ion-icon name="search" class="search-icon"></ion-icon>
-            </div>
-          </ion-col>
+
+<ion-content [fullscreen]="true" force-overscroll="false" class="has-tabs"> 
   
-          <ion-col class="home-col">
-            <div class="welcome-container" *ngIf="!showSearch">
-              <p>SenszeQRMenuX</p>
-            </div>
-            <div *ngIf="showSearch" class="search-bar-container">
-              <ion-input type="text" [(ngModel)]="searchTerm" 
-                         (input)="searchProducts()" 
-                         placeholder="Search products..."
-                         class="search-input-inline">
-              </ion-input>
-              <ion-icon name="close-circle" class="close-icon-inline" (click)="hideSearch()"></ion-icon>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-toolbar>
-  </ion-header>
   
-  <ion-content [fullscreen]="true" force-overscroll="false" class="has-tabs" style="--padding-top: 1000;">
-    <div class="tabs-container">
-      <ion-segment scrollable class="custom-segment">
-        <ion-segment-button *ngFor="let category of categories" 
-                            (click)="onCategoryChange(category)" 
-                            layout="icon-top" 
-                            mode="md" 
-                            class="category-button">
-                            <ion-label>{{ category | uppercase }}</ion-label>
-                          </ion-segment-button>
-      </ion-segment>
-    </div>
-    
-    <ion-list>
-      <ion-item *ngFor="let product of filteredProducts" class="modern-item">
-        <ion-thumbnail slot="start">
-          <img [src]="product.ImgPath && product.ImgPath.trim() !== '' ? product.ImgPath : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'" 
-               (error)="onImageError($event)" />
-        </ion-thumbnail>
-        
-        
-    
-        <ion-label>
-          <div class="name-with-check">
-            <ion-icon name="checkmark-circle" class="check-icon"></ion-icon>
-            <h2>{{ product.NameOF | uppercase }}</h2>
-          </div>
-          <p class="price">{{ product.SellingPrice | number:'1.2-2' }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+  <p class="styled-food-text">ChoOsE yOUr <span>FavouRitE</span> foOd 😋 </p>
+  <ion-searchbar [(ngModel)]="searchTerm" 
+                 (ionInput)="searchProducts()" 
+                 placeholder="Search..."
+                 showClearButton="true"
+                 class="custom-searchbar">
+  </ion-searchbar>
 
-  <ion-tab-bar slot="bottom" (ionChange)="tabChange($event)">
-    <p class="bottom-bar-text">SenszeQRMenuX</p>
-  </ion-tab-bar>
 
-</ion-tabs>
+  <!-- Fixed Tabs -->
+  <div class="tabs-container">
+    <ion-segment scrollable class="custom-segment" slot="fixed">
+      <ion-segment-button *ngFor="let category of categories" 
+                          (click)="onCategoryChange(category)" 
+                          layout="icon-top" 
+                          mode="md" 
+                          class="category-button">
+        <ion-label>{{ category | uppercase }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    <ion-card *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="product.ImgPath && product.ImgPath.trim() !== '' ? product.ImgPath : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'" 
+           (error)="onImageError($event)" class="product-image" />
+      <ion-card-content>
+        <h2 class="product-name">{{ product.NameOF | uppercase }}</h2>
+        <div class="price-section">
+          <span class="discounted-price">Rs.{{ product.SellingPrice | number:'1.2-2' }}</span>
+          <span class="original-price" *ngIf="product.OriginalPrice">Rs.{{ product.OriginalPrice | number:'1.2-2' }}</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar>
+    <ion-title class="custom-title">SenszeQRMenuX</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
